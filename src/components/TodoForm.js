@@ -19,8 +19,6 @@ class ToDoForm extends React.Component{
         this.props.addItem(this.state.input)
     }
 
-
-
     render(){
         return(
             <form onSubmit={this.onSubmit}>

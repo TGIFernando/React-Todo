@@ -2,11 +2,13 @@ import React from 'react'
 
 const ToDo = props => {
     const handleClick = () => {
-        props.handleToggleItem(props.items.id)
+        props.toggleItem(props.items.id)
     }
     return(
-        <div>
-            <p>{props.items.text}</p>
+        <div onClick={handleClick} className={`item${props.item.crossed ? 'cross' : ''}`}>
+            <p>{props.item.text}</p>
         </div>
     )
 }
+
+export default ToDo
