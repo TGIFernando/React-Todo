@@ -17,6 +17,9 @@ class ToDoForm extends React.Component{
     onSubmit = e => {
         e.preventDefault()
         this.props.addItem(this.state.input)
+        this.setState({
+            input: ''
+        })
     }
 
     render(){

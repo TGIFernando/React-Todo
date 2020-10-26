@@ -2,7 +2,7 @@ import React from 'react'
 
 const ToDo = props => {
     const handleClick = () => {
-        props.toggleItem(props.items.id)
+        props.toggleItem(props.item.id)
     }
     return(
         <div onClick={handleClick} className={`item${props.item.crossed ? 'cross' : ''}`}>

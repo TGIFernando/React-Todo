@@ -10,10 +10,10 @@ const ToDoList = props => {
 
     return(
         <div className="Item-List">
-            {props.items.map(item=>{
+            {props.items.map(item => (
                 <ToDo toggleItem={props.toggleItem} key={item.id} item={item}/>
-            })}
-            <button onClick={onClick} className='cleat-btn'>Clear Selected</button>
+            ))}
+            <button onClick={onClick} className='clear-btn'>Clear Selected</button>
         </div>
     )
 }

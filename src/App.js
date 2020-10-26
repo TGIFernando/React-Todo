@@ -1,8 +1,9 @@
 import React from 'react';
 import ToDoForm from './components/TodoForm'
+import ToDoList from './components/TodoList'
 
 const items = [{
-  text: 'text',
+  text: 'Example task',
   id: 123,
   crossed: false,
 },]
@@ -19,17 +20,18 @@ class App extends React.Component {
   }
 
   toggleItem = (itemID) => {
-    this.setState({items: this.state.items.map(item => {
-      if(item.id === itemID) {
-        return{
-          ...item,
-          crossed: !item.crossed
+    this.setState({
+      items: this.state.items.map((item) => {
+        if (item.id === itemID) {
+          return{
+            ...item,
+            crossed: !item.crossed
+          }
+        } else {
+          return item
         }
-      } else {
-        return item
-      }
-    })})
-    console.log(this.item)
+      })
+    })
   }
 
   addItem = (text) => {
@@ -54,6 +56,7 @@ class App extends React.Component {
       <div>
         <h2>Ferns Todo App!</h2>
         <ToDoForm addItem={this.addItem}/>
+        <ToDoList clearItems={this.clearItems} toggleItem={this.toggleItem} items={this.state.items}/>
       </div>
     );
   }
