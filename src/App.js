@@ -1,4 +1,5 @@
 import React from 'react';
+import ToDoForm from './components/TodoForm'
 
 const items = [{
   text: 'text',
@@ -16,11 +17,43 @@ class App extends React.Component {
       items: items
     }
   }
-  
+
+  toggleItem = (itemID) => {
+    this.setState({items: this.state.items.map(item => {
+      if(item.id === itemID) {
+        return{
+          ...item,
+          crossed: !item.crossed
+        }
+      } else {
+        return item
+      }
+    })})
+    console.log(this.item)
+  }
+
+  addItem = (text) => {
+    this.setState({
+      items:[...this.state.items, {
+        text: text,
+        id: Date.now(),
+        crossed: false
+      }]
+    })
+  }
+
+  clearItems = () => {
+    this.setState({
+      items: this.state.items.filter(item=>(!item.crossed))
+    })
+  }
+
+
   render() {
     return (
       <div>
         <h2>Ferns Todo App!</h2>
+        <ToDoForm addItem={this.addItem}/>
       </div>
     );
   }
