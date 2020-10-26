@@ -1,4 +1,5 @@
 import React from 'react';
+import './components/Todo.css'
 import ToDoForm from './components/TodoForm'
 import ToDoList from './components/TodoList'
 
@@ -53,8 +54,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Ferns Todo App!</h2>
+      <div className='Main-div'>
+        <h2 className='fern'>Ferns Todo App!</h2>
         <ToDoForm addItem={this.addItem}/>
         <ToDoList clearItems={this.clearItems} toggleItem={this.toggleItem} items={this.state.items}/>
       </div>
